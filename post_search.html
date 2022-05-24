@@ -1,0 +1,34 @@
+<html>
+<head>
+  <title>Simple website Api</title>
+  <link rel="stylesheet" href="style_pages.css">
+  <script src="search.js"></script>
+</head>
+<body>
+  <div class="banner">
+    <div class="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="post_create.html">Create a new post</a></li>
+        <li><a href="post_search.html">Search for a post</a></li>
+        <li><a href="post_update.html">Update a post</a></li>
+        <li><a href="post_delete.html">Delete post</a></li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <h1>Type in the ID of the post or the ID of the user</h1>
+      <div>
+        <form  id="frm1">
+          PostId: <input type="text" name="post_id" id="PostId"><br>
+          <input type="button" onclick="search_by_post_id()" value="Submit post ID">
+        </form>
+        <form  id="frm2">
+          User ID: <input type="text" name="user_id"><br>
+          <input type="button" onclick="search_by_user_id()" value="Submit user ID">
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
