@@ -31,7 +31,6 @@ print(response.json())
 
 input()
 
-'''
+
 response = requests.delete(BASE + "posts", data={"id": 1, "userId": 1})
 print(response)
-'''
