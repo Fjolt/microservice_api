@@ -1,0 +1,22 @@
+openapi: 3.0.0
+tags:
+  - name: Posts manager api
+
+parameters:
+  - in: path
+    name: id
+    description: ID of the post
+    required: true
+  - name: UserId
+    description: ID of the user
+    required: true
+
+responses:
+    '200':
+      description: Post was deleted
+    '401':
+      description: You are not authorised to delete this post.
+    '404':
+      description: We could not find this post.Try typing in its ID or the ID of its creator.
+    '500':
+      description: Internal Server Error

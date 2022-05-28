@@ -1,0 +1,28 @@
+openapi: 3.0.0
+tags:
+  - name: Posts manager api
+
+parameters:
+  - in: path
+    name: id
+    description: ID of the post
+    required: true
+  - name: UserId
+    description: ID of the user
+    required: true
+  - name: title
+    description: Title of the post
+    required: true
+  - name: body
+    description: Body of the post
+    required: true
+
+responses:
+    '201':
+      description: Created
+    '404':
+      description: User does not exist
+    '409':
+      description: Post id already taken
+    '500':
+      description: Internal Server Error
