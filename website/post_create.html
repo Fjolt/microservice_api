@@ -1,0 +1,35 @@
+<html>
+<head>
+  <title>Simple website Api</title>
+  <link rel="stylesheet" href="style_pages.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  <div class="banner">
+    <div class="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="post_create.html">Create a new post</a></li>
+        <li><a href="post_search.html">Search for a post</a></li>
+        <li><a href="post_update.html">Update a post</a></li>
+        <li><a href="post_delete.html">Delete post</a></li>
+        <li><a href="all_posts.html">All posts</a></li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <h1>Type in what you need</h1>
+      <div>
+        <form  id="frm1">
+          UserId: <input type="text" name="user_id" id="UserId"><br><br>
+          PostId: <input type="text" name="post_id" id="PostId"><br><br>
+          Title: <input type="text" name="title" id="Title"><br><br>
+          Body: <input type="text" name="body" id="Body"><br><br>
+          <input type="button" onclick="enter_a_post()" value="Submit post">
+        </form>
+    </div>
+    <div class="posts" id="posts"></div>
+    </div>
+  </div>
+</body>
+</html>
