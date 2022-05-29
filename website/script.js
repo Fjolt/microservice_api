@@ -1,25 +1,25 @@
-function search_by_post_id(){
+function search_by_post_id() {
     var PostId = document.getElementById('PostId').value;
     let promise = fetch('http://127.0.0.1:5000/posts?id=' + PostId);
     promise
-      .then(response => {
-          if(!response.ok){
-            if(response.status == 404){
-                const to_html = 
-                    `
+        .then(response => {
+            if (!response.ok) {
+                if (response.status == 404) {
+                    const to_html =
+                        `
                         <div class="post">
                         <h2>404 NOT FOUND</h2><br>
                         </div>
                     `;
-                document.querySelector('#posts').insertAdjacentHTML('afterbegin', to_html);
+                    document.querySelector('#posts').insertAdjacentHTML('afterbegin', to_html);
+                }
+                throw Error(response.status)
             }
-            throw Error(response.status)
-          }
-          return response.json()
-      })
-      .then(data => {
+            return response.json()
+        })
+        .then(data => {
             console.log(data)
-            const to_html = 
+            const to_html =
                 `
                     <div class="post">
                     <h2>${data.title}</h2><br>
@@ -27,18 +27,18 @@ function search_by_post_id(){
                     </div>
                 `;
             document.querySelector('#posts').insertAdjacentHTML('afterbegin', to_html);
-      })
+        })
 }
 
 
-function search_by_user_id(){
+function search_by_user_id() {
     var UserId = document.getElementById('UserId').value;
     let promise = fetch('http://127.0.0.1:5000/posts?userId=' + UserId);
     promise
         .then(response => {
-            if(!response.ok){
-                if(response.status == 404){
-                    const to_html = 
+            if (!response.ok) {
+                if (response.status == 404) {
+                    const to_html =
                         `
                             <div class="post">
                             <h2>404 NOT FOUND</h2><br>
@@ -59,19 +59,19 @@ function search_by_user_id(){
                     <p>${post.body}</p>
                     </div>
                 `;
-                }).join("");
+            }).join("");
             document.querySelector('#posts').insertAdjacentHTML('afterbegin', to_html);
         })
 }
 
-function enter_a_post(){
+function enter_a_post() {
     var UserId = document.getElementById('UserId').value;
     var PostId = document.getElementById('PostId').value;
     var Title = document.getElementById('Title').value;
     var Body = document.getElementById('Body').value;
     let promise = fetch('http://127.0.0.1:5000/posts', {
         method: "POST",
-        headers:{
+        headers: {
             "Content-type": "application/json"
         },
         body: JSON.stringify({
@@ -83,7 +83,7 @@ function enter_a_post(){
     });
     promise
         .then(response => {
-            if(!response.ok){
+            if (!response.ok) {
                 const to_html =
                     `
                         <div class="post">
@@ -109,14 +109,14 @@ function enter_a_post(){
         });
 }
 
-function update_a_post(){
+function update_a_post() {
     var UserId = document.getElementById('UserId').value;
     var PostId = document.getElementById('PostId').value;
     var Title = document.getElementById('Title').value;
     var Body = document.getElementById('Body').value;
     let promise = fetch('http://127.0.0.1:5000/posts', {
         method: "PATCH",
-        headers:{
+        headers: {
             "Content-type": "application/json"
         },
         body: JSON.stringify({
@@ -128,7 +128,7 @@ function update_a_post(){
     });
     promise
         .then(response => {
-            if(!response.ok){
+            if (!response.ok) {
                 const to_html =
                     `
                     <div class="post">
@@ -154,12 +154,12 @@ function update_a_post(){
         });
 }
 
-function delete_a_post(){
+function delete_a_post() {
     var UserId = document.getElementById('UserId').value;
     var PostId = document.getElementById('PostId').value;
     let promise = fetch('http://127.0.0.1:5000/posts', {
         method: "DELETE",
-        headers:{
+        headers: {
             "Content-type": "application/json"
         },
         body: JSON.stringify({
@@ -169,7 +169,7 @@ function delete_a_post(){
     });
     promise
         .then(response => {
-            if(!response.ok){
+            if (!response.ok) {
                 const to_html =
                     `
                     <div class="post">
