@@ -1,9 +1,9 @@
 let promise = fetch('http://127.0.0.1:5000/posts');
 promise
     .then(response => {
-        if(!response.ok){
-            if(response.status == 404){
-                const to_html = 
+        if (!response.ok) {
+            if (response.status == 404) {
+                const to_html =
                     `
                         <div class="post">
                         <h2>404 NOT FOUND</h2><br>
@@ -26,6 +26,6 @@ promise
                 <p>${post.body}</p>
                 </div>
             `;
-            }).join("");
+        }).join("");
         document.querySelector('#posts').insertAdjacentHTML('afterbegin', to_html);
     })
