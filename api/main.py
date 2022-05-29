@@ -54,7 +54,7 @@ class Post(Resource):
         args = post_find.parse_args()
         post_id = args["id"]
         userId = args["userId"]
-        if post_id == None and userId == None:
+        if not post_id and not userId:
             result = PostModel.query.all()
             return result, 200
 
@@ -111,7 +111,7 @@ class Post(Resource):
         result = PostModel.query.filter_by(id=args["id"]).first()
         if not result:
             abort(404, message=messages["404 post"])
-        
+
         print(args)
         print(result.userId)
 
@@ -122,12 +122,11 @@ class Post(Resource):
                 result.body = args["body"]
         else:
             abort(401, message=messages["401 update"])
-            
 
         db.session.commit()
 
         return result, 200
-    
+
     @swag_from('swag_delete.yml')
     def delete(self):
         '''
