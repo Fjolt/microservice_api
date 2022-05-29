@@ -32,9 +32,10 @@ print(response.json())
 
 input()
 
-
 response = requests.delete(BASE + "posts", data={"id": 1, "userId": 1})
 print(response)
+
+input()
 
 response = requests.get(BASE + "posts", data={"userId": 1})
 print(response.json())
